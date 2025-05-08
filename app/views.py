@@ -12,6 +12,10 @@ import datetime
 import pymongo
 
 
+import os
+
+if os.environ.get('USE_FACE') == 'true':
+    import face_recognition
 # Create your views here.
 def home(request):
     return render(request,'index.html')
