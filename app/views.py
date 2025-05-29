@@ -122,7 +122,7 @@ def train_model(request):
 
 
 @csrf_exempt
-def attendance(reques):
+def attendance(request):
     url = 'mongodb://localhost:27017/'
     client = pymongo.MongoClient(url)
     db = client['face_data']
