@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import render, HttpResponse
 import cv2
 import face_recognition
 import pickle
@@ -56,7 +56,8 @@ def name_receive(request):
             cv2.destroyAllWindows()
             print(f"Face capture complete! Images saved in {student_path}/")
         except Exception as e:
-            return HttpResponse("Image captured successfully")
+            return JsonResponse({"Status":"Failure"})
+        return JsonResponse({"Status":"Success"})
 @csrf_exempt
 def train_model(request):
     data = {}
@@ -118,7 +119,7 @@ def train_model(request):
         pickle.dump(data, f)
     print("Training model completed")
 
-    return HttpResponse("Model training complete!")
+    return JsonResponse({"Status":"Success"})
 
 
 @csrf_exempt
@@ -169,4 +170,4 @@ def attendance(request):
     cam.release()
     cv2.destroyAllWindows()
     print("Attendance marked successfully!")
-    return HttpResponse("Attedance marked successfully")
+    return JsonResponse({"Status":"Success"})
