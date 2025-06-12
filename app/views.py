@@ -169,5 +169,5 @@ def attendance(request):
             break
     cam.release()
     cv2.destroyAllWindows()
-    print("Attendance marked successfully!")
+    #print("Attendance marked successfully!")
     return JsonResponse({"Status":"Success"})
