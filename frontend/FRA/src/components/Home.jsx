@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import './home.css'
 import styled from 'styled-components'
 import axios from 'axios'
-import face from '../assets/face.jpg'
 import attendance from '../assets/attendance.jpg'
 function Home() {
   const navigate = useNavigate()
@@ -34,13 +33,13 @@ No cards. No clicks. Just you</p>
         <div className="btn">
         <div className="onboard">
           <div className="pic">
-            <img src={face} width={100} height={100} alt="some technical error" />
+            <img src='../src/assets/face.jpg' width={100} height={100} alt="some technical error" />
           </div>
           <button onClick={()=>navigate('/onboard')}>Onboard</button>
         </div>
         <div className="attendance">
           <div className="pic">
-            <img src={attendance} width={100} height={100} alt="" />
+            <img src='../src/assets/attendance.jpg' width={100} height={100} alt="" />
           </div>
           <button onClick={navigation}>Attendance</button>
         </div>
